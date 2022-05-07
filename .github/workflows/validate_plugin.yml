@@ -70,10 +70,10 @@ jobs:
                     path: 'manifest.json',
                   });
 
-                  console.log('!!!!!!!!!!!', window.atob(manifestFile.data.content));
-                  console.log('~~~~~~~~~~~', window.atob(manifestFile.data.content));
-                  console.log('@@@@@@@@@@@', JSON.parse(window.atob(manifestFile.data.content)));
-                  let manifest = JSON.parse(window.atob(manifestFile.data.content));
+                  console.log('!!!!!!!!!!!', atob(manifestFile.data.content));
+                  console.log('~~~~~~~~~~~', atob(manifestFile.data.content));
+                  console.log('@@@@@@@@@@@', JSON.parse(atob(manifestFile.data.content)));
+                  let manifest = JSON.parse(atob(manifestFile.data.content));
                   if (manifest.id != plugin.id) {
                     addError('Plugin ID mismatch, the ID in this repo is not the same as the one in your repo.');
                   }
