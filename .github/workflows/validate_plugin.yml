@@ -37,6 +37,8 @@ jobs:
             			body: message
             		});
             	}
+
+							core.setFailed("Failed to validate plugin");
             };
 
             if (context.payload.pull_request.changed_files > 1) {
