@@ -56,12 +56,11 @@ jobs:
                   repo,
                 });
 
-                const assets = release.data.assets;
-                console.log('assets', assets)
-                if (!release.assets || !release.assets.find(p => p.name == 'main.js')) {
+                const assets = release.data.assets || [];
+                if (!assets.find(p => p.name === 'main.js')) {
                   addError('Your latest Release is missing the `main.js` File.');
                 }
-                if (!assets || !assets.find(p => p.name == 'manifest.json')) {
+                if (!assets.find(p => p.name === 'manifest.json')) {
                   addError('Your latest Release is missing the `manifest.json` File.');
                 }
                 try {
