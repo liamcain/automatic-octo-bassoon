@@ -71,7 +71,7 @@ jobs:
                   });
                   console.log('manifest', manifestFile);
 
-                  let manifest = JSON.parse(atob(manifestFile.data.contents));
+                  let manifest = JSON.parse(atob(manifestFile.data.content));
                   if (manifest.id != plugin.id) {
                     addError('Plugin ID mismatch, the ID in this repo is not the same as the one in your repo.');
                   }
