@@ -4107,7 +4107,7 @@
         "repo": "trey-wallis/obsidian-notion-like-tables"
     },
     {
-        "id": "calendar-2",
+        "id": "calendar",
         "name": "Calendar",
         "author": "Liam Cain",
         "description": "Simple calendar widget for Obsidian",
