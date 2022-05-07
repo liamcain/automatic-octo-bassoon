@@ -73,7 +73,8 @@ jobs:
                     addError('Plugin ID mismatch, the ID in this repo is not the same as the one in your repo.');
                   }
                 } catch (e) {
-                  addError(`You don't have a \`manifest.json\` at the root of your repo.`, e);
+                  console.log(e);
+                  addError(`You don't have a \`manifest.json\` at the root of your repo.`);
                 }
               } catch (e) {
                 addError(`It seems like you made a typo in the repository field \`${plugin.repo}\`.\n<details><summary>Log</summary><pre>${escapeHtml(e.toString())}</pre></details>`);
