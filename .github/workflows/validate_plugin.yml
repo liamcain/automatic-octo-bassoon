@@ -29,7 +29,7 @@ jobs:
             };
             const finish = async () => {
             	if (errors.length > 0) {
-            		let message = `### Hello ${plugin.author}! <a href="https://obsidian.md"><img align="right" height="30px" src="https://user-images.githubusercontent.com/59741989/139557624-63e6e31f-e617-4041-89ae-78b534a8de5c.png"/></a>\n**I found the following Errors in your Plugin, ${plugin.name}:**\n\n${errors.join('\n')}\n\n---\n<sup>This check was done automatically.`;
+            		let message = `### Hello ${plugin.author}! <a href="https://obsidian.md"><img align="right" height="30px" src="https://user-images.githubusercontent.com/59741989/139557624-63e6e31f-e617-4041-89ae-78b534a8de5c.png"/></a>\n**I found the following errors in your plugin, ${plugin.name}:**\n\n${errors.join('\n')}\n\n---\n<sup>This check was done automatically.`;
             		await github.rest.issues.createComment({
             			issue_number: context.issue.number,
             			owner: context.repo.owner,
@@ -54,10 +54,9 @@ jobs:
 
             if (owner.toLowerCase() !== author.toLowerCase()) {
             	addError(`The newly added entry is not at the end, or you are submitting on someone else's behalf. Last plugin in the list is: ${plugin.repo}`);
-            }
-            else {
+            } else {
             	try {
-            		await github.rest.repos.get({owner, repo});
+            		await github.rest.repos.get({ owner, repo });
             	} catch (e) {
             		addError(`It seems like you made a typo in the repository field ${plugin.repo}`);
             	}
@@ -68,10 +67,10 @@ jobs:
             			repo,
             		});
 
-            		if (!release.assets.find(p => p.name == 'main.js')) {
+            		if (!release.assets && release.assets.find(p => p.name == 'main.js')) {
             			addError('Your latest Release is missing the `main.js` File.');
             		}
-            		if (!release.assets.find(p => p.name == 'manifest.json')) {
+            		if (!release.assets && release.assets.find(p => p.name == 'manifest.json')) {
             			addError('Your latest Release is missing the `manifest.json` File.');
             		}
             		try {
@@ -81,10 +80,10 @@ jobs:
             				path: 'manifest.json',
             			}));
             			if (manifest.id != plugin.id) {
-            				addError('Plugin ID mismatch, the ID in this Repo is not the same as the one in your Repo.');
+            				addError('Plugin ID mismatch, the ID in this repo is not the same as the one in your repo.');
             			}
             		} catch (e) {
-            			addError(`You don't have a \`manifest.json\` at the root of your Repo.`);
+            			addError(`You don't have a \`manifest.json\` at the root of your repo.`);
             		}
             	} catch (e) {
             		addError(`It seems like you made a typo in the repository field \`${plugin.repo}\`.\n<details><summary>Log</summary><pre>${escapeHtml(e.toString())}</pre></details>`);
