@@ -6,6 +6,10 @@ on:
       - develop
 
 jobs:
+  permissions:
+    contents: write
+    issues: write
+    pull-requests: write
   comment:
     runs-on: ubuntu-latest
     steps:
