@@ -57,6 +57,7 @@ jobs:
                 });
 
                 const assets = release.data.assets;
+                console.log('assets', assets)
                 if (!release.assets || !release.assets.find(p => p.name == 'main.js')) {
                   addError('Your latest Release is missing the `main.js` File.');
                 }
