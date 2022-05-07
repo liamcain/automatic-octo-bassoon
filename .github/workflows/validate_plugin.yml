@@ -3,9 +3,9 @@ name: Plugin Validation
 on:
   pull_request:
     branches:
-      - "master"
+      - master
     paths:
-      - 'community-plugins.json'
+      - community-plugins.json
 
 jobs:
   plugin-validation:
@@ -91,7 +91,7 @@ jobs:
             	}
             }
             await finish();
-		permissions:
-			contents: write
-			issues: write
-			pull-requests: write
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
