@@ -6,10 +6,6 @@ on:
       - develop
 
 jobs:
-  permissions:
-    contents: write
-    issues: write
-    pull-requests: write
   comment:
     runs-on: ubuntu-latest
     steps:
@@ -23,3 +19,7 @@ jobs:
               repo: context.repo.repo,
               body: '👋 Thanks for reporting!'
             })
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write

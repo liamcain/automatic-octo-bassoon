@@ -9,10 +9,6 @@ on:
 
 jobs:
   plugin-validation:
-		permissions:
-			contents: write
-			issues: write
-			pull-requests: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -95,3 +91,7 @@ jobs:
             	}
             }
             await finish();
+		permissions:
+			contents: write
+			issues: write
+			pull-requests: write
