@@ -4105,5 +4105,12 @@
         "author": "Trey Wallis",
         "description": "Create markdown tables using an interface similar to that found in Notion.so.",
         "repo": "trey-wallis/obsidian-notion-like-tables"
+    },
+    {
+        "id": "calendar-2",
+        "name": "Calendar2",
+        "author": "Liam Cain",
+        "description": "foobar.",
+        "repo": "liamcain/obsidian-calendar-plugin"
     }
 ]
